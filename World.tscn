@@ -17,6 +17,12 @@ extents = Vector3( 10, 1, 10 )
 
 [sub_resource type="Environment" id=5]
 background_mode = 1
+fog_enabled = true
+fog_color = Color( 1, 1, 1, 1 )
+fog_sun_color = Color( 0, 0, 0, 1 )
+fog_depth_begin = 0.0
+fog_depth_end = 50.0
+fog_depth_curve = 0.189465
 
 [sub_resource type="CubeMesh" id=6]
 
@@ -26,6 +32,7 @@ background_mode = 1
 
 [node name="player" type="KinematicBody" parent="."]
 script = ExtResource( 1 )
+mouse_sensitivity = 0.5
 move_speed = 4
 jump_force = 7.0
 
@@ -56,11 +63,6 @@ shape = SubResource( 4 )
 
 [node name="world_environment" type="WorldEnvironment" parent="."]
 environment = SubResource( 5 )
-
-[node name="omni_light" type="OmniLight" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.50557, -2.6749 )
-shadow_enabled = true
-omni_range = 10.7
 
 [node name="static_body2" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.983349, -9.12185 )
