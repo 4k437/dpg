@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 
@@ -8,11 +8,20 @@ radius = 0.5
 [sub_resource type="CapsuleMesh" id=2]
 radius = 0.5
 
+[sub_resource type="CubeMesh" id=3]
+resource_local_to_scene = true
+size = Vector3( 20, 2, 20 )
+
+[sub_resource type="CubeMesh" id=4]
+
+[sub_resource type="Environment" id=5]
+background_mode = 1
+
 [node name="World" type="Spatial"]
 
 [node name="player" type="KinematicBody" parent="."]
 script = ExtResource( 1 )
-move_speed = 1
+move_speed = 4
 
 [node name="collision_shape" type="CollisionShape" parent="player"]
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0 )
@@ -23,5 +32,23 @@ transform = Transform( 1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 1, 0
 mesh = SubResource( 2 )
 material/0 = null
 
-[node name="camera" type="Camera" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4.6984 )
+[node name="camera" type="Camera" parent="player"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
+
+[node name="mesh_instance" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.961552, -2.11485 )
+mesh = SubResource( 3 )
+material/0 = null
+
+[node name="mesh_instance2" type="MeshInstance" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.918107, -6.17245 )
+mesh = SubResource( 4 )
+material/0 = null
+
+[node name="world_environment" type="WorldEnvironment" parent="."]
+environment = SubResource( 5 )
+
+[node name="omni_light" type="OmniLight" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.50557, -2.6749 )
+shadow_enabled = true
+omni_range = 10.7
