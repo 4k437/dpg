@@ -33,7 +33,7 @@ fog_depth_curve = 0.189465
 [node name="player" type="KinematicBody" parent="."]
 script = ExtResource( 1 )
 mouse_sensitivity = 0.5
-move_speed = 4
+friction = 0.2
 jump_force = 7.0
 
 [node name="collision_shape" type="CollisionShape" parent="player"]
