@@ -112,6 +112,10 @@ rewind={
  ]
 }
 
+[node]
+
+name_casing=2
+
 [rendering]
 
 quality/driver/driver_name="GLES2"

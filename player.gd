@@ -4,17 +4,19 @@ export var mouse_sensitivity = 1.0;
 onready var camera = $camera
 
 var velocity:Vector3
-var current_gravity = 0.0
 export var move_speed = 5
 export var acceleration = 0.1
 export var friction = 0.1
+export var air_friction = 0.01
 export var gravity = 20.0
+var current_gravity = 0.0
 export var jump_force = 5.0
 
 var is_grounded = false
 
 func _ready() -> void:
 	Timekeeper.connect("tick", self, "tick")
+	Input.set_mouse_mode(Input.MOUSE_MODE_CAPTURED)
 
 func _input(event):
 	if (!Timekeeper.is_recording):return
@@ -33,7 +35,8 @@ func _physics_process(delta):
 		rotation = info[1]
 		camera.rotation = info[2]
 		velocity = info[3]
-		is_grounded = info[4]
+		current_gravity = info[4]
+		is_grounded = info[5]
 
 func movement(delta):
 	var move_input = Vector2(
@@ -47,6 +50,8 @@ func movement(delta):
 		else:
 			var global_move_input = (move_input.x * transform.basis.x + move_input.y * transform.basis.z)
 			velocity = velocity.linear_interpolate(global_move_input * move_speed, acceleration)
+	else:
+		velocity = velocity.linear_interpolate(Vector3.ZERO, air_friction)
 	
 	current_gravity -= gravity * delta
 	velocity.y = current_gravity
@@ -65,6 +70,7 @@ func tick():
 		rotation,
 		camera.rotation,
 		velocity,
+		current_gravity,
 		is_grounded
 	]
 	Timekeeper.store_information(info, self)
