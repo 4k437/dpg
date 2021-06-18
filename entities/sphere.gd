@@ -5,7 +5,7 @@ export var move_speed := 2.0;
 
 func _ready() -> void:
 	Timekeeper.connect("tick", self, "tick")
-	velocity = Vector3.FORWARD * move_speed
+	velocity = transform.basis.z * move_speed
 
 func _physics_process(delta: float) -> void:
 	if (Timekeeper.is_recording):
@@ -20,6 +20,7 @@ func movement(delta):
 	
 	if (collision):
 		velocity = velocity.bounce(collision.normal).normalized() * move_speed
+		velocity.y = 0
 
 func tick():
 	var info = [

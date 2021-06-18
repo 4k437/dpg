@@ -9,10 +9,10 @@ func _ready() -> void:
 	connect("body_entered", self, "body_entered")
 
 func body_entered(body):
+	if (activated):return
 	if (Timekeeper.is_recording):
 		activated = true
 		emit_signal("activated")
-		body.velocity = Vector3.ZERO
 
 func _physics_process(_delta: float) -> void:
 	if (!Timekeeper.is_recording):

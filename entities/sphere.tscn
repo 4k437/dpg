@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://entities/sphere.gd" type="Script" id=1]
+
+[sub_resource type="SphereShape" id=1]
+radius = 0.25
+
+[sub_resource type="SphereMesh" id=2]
+radius = 0.25
+height = 0.5
+
+[node name="sphere" type="KinematicBody"]
+collision_layer = 4
+script = ExtResource( 1 )
+move_speed = 5.0
+
+[node name="collision_shape" type="CollisionShape" parent="."]
+shape = SubResource( 1 )
+
+[node name="mesh_instance" type="MeshInstance" parent="."]
+mesh = SubResource( 2 )
+material/0 = null
