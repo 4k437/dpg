@@ -1,7 +1,10 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://player.gd" type="Script" id=1]
 [ext_resource path="res://exit.gd" type="Script" id=2]
+[ext_resource path="res://sphere.gd" type="Script" id=3]
+[ext_resource path="res://catcher.gd" type="Script" id=4]
+[ext_resource path="res://door.gd" type="Script" id=5]
 
 [sub_resource type="CapsuleShape" id=1]
 radius = 0.5
@@ -9,14 +12,21 @@ radius = 0.5
 [sub_resource type="CapsuleMesh" id=2]
 radius = 0.5
 
-[sub_resource type="CubeMesh" id=3]
+[sub_resource type="SphereShape" id=3]
+radius = 0.25
+
+[sub_resource type="SphereMesh" id=4]
+radius = 0.25
+height = 0.5
+
+[sub_resource type="CubeMesh" id=5]
 resource_local_to_scene = true
 size = Vector3( 20, 2, 20 )
 
-[sub_resource type="BoxShape" id=4]
+[sub_resource type="BoxShape" id=6]
 extents = Vector3( 10, 1, 10 )
 
-[sub_resource type="Environment" id=5]
+[sub_resource type="Environment" id=7]
 background_mode = 1
 fog_enabled = true
 fog_color = Color( 1, 1, 1, 1 )
@@ -25,22 +35,36 @@ fog_depth_begin = 0.0
 fog_depth_end = 50.0
 fog_depth_curve = 0.189465
 
-[sub_resource type="CubeMesh" id=6]
+[sub_resource type="CubeMesh" id=8]
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=9]
 
-[sub_resource type="SphereShape" id=8]
+[sub_resource type="SphereShape" id=10]
 
-[sub_resource type="SphereMesh" id=9]
+[sub_resource type="SphereMesh" id=11]
+
+[sub_resource type="SphereShape" id=12]
+
+[sub_resource type="CylinderMesh" id=13]
+top_radius = 0.75
+bottom_radius = 0.75
+height = 1.5
+
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 2, 2, 0.2 )
+
+[sub_resource type="CubeMesh" id=15]
+size = Vector3( 4, 4, 0.4 )
 
 [node name="World" type="Spatial"]
 
 [node name="player" type="KinematicBody" parent="."]
+collision_layer = 2
+collision_mask = 5
 script = ExtResource( 1 )
 mouse_sensitivity = 0.5
 friction = 0.2
 air_friction = 0.005
-gravity = 0.01
 jump_force = 7.0
 
 [node name="collision_shape" type="CollisionShape" parent="player"]
@@ -55,6 +79,19 @@ material/0 = null
 [node name="camera" type="Camera" parent="player"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, 0 )
 
+[node name="sphere" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 1.48686, 0.492385, 0 )
+collision_layer = 4
+script = ExtResource( 3 )
+move_speed = 5.0
+
+[node name="collision_shape" type="CollisionShape" parent="sphere"]
+shape = SubResource( 3 )
+
+[node name="mesh_instance" type="MeshInstance" parent="sphere"]
+mesh = SubResource( 4 )
+material/0 = null
+
 [node name="static_body" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01065, -1.0706 )
 __meta__ = {
@@ -62,14 +99,79 @@ __meta__ = {
 }
 
 [node name="mesh_instance" type="MeshInstance" parent="static_body"]
-mesh = SubResource( 3 )
+mesh = SubResource( 5 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body"]
-shape = SubResource( 4 )
+shape = SubResource( 6 )
+
+[node name="static_body7" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.1755, -1.0706 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="mesh_instance" type="MeshInstance" parent="static_body7"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="collision_shape" type="CollisionShape" parent="static_body7"]
+shape = SubResource( 6 )
+
+[node name="static_body3" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 8.94133, 8.22741, -1.0706 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="mesh_instance" type="MeshInstance" parent="static_body3"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="collision_shape" type="CollisionShape" parent="static_body3"]
+shape = SubResource( 6 )
+
+[node name="static_body4" type="StaticBody" parent="."]
+transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -8.90692, 8.22741, -1.0706 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="mesh_instance" type="MeshInstance" parent="static_body4"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="collision_shape" type="CollisionShape" parent="static_body4"]
+shape = SubResource( 6 )
+
+[node name="static_body5" type="StaticBody" parent="."]
+transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.148677, 8.22741, -10.0789 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="mesh_instance" type="MeshInstance" parent="static_body5"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="collision_shape" type="CollisionShape" parent="static_body5"]
+shape = SubResource( 6 )
+
+[node name="static_body6" type="StaticBody" parent="."]
+transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.148677, 8.22741, 7.87589 )
+__meta__ = {
+"_edit_group_": true
+}
+
+[node name="mesh_instance" type="MeshInstance" parent="static_body6"]
+mesh = SubResource( 5 )
+material/0 = null
+
+[node name="collision_shape" type="CollisionShape" parent="static_body6"]
+shape = SubResource( 6 )
 
 [node name="world_environment" type="WorldEnvironment" parent="."]
-environment = SubResource( 5 )
+environment = SubResource( 7 )
 
 [node name="static_body2" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.983349, -9.12185 )
@@ -78,19 +180,51 @@ __meta__ = {
 }
 
 [node name="mesh_instance2" type="MeshInstance" parent="static_body2"]
-mesh = SubResource( 6 )
+mesh = SubResource( 8 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body2"]
-shape = SubResource( 7 )
+shape = SubResource( 9 )
 
 [node name="exit" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.19766, 7.3432 )
+collision_layer = 0
+collision_mask = 2
 script = ExtResource( 2 )
 
 [node name="coll_shape" type="CollisionShape" parent="exit"]
-shape = SubResource( 8 )
+shape = SubResource( 10 )
 
 [node name="mesh_instance" type="MeshInstance" parent="exit"]
-mesh = SubResource( 9 )
+mesh = SubResource( 11 )
+material/0 = null
+
+[node name="catcher" type="Area" parent="."]
+transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 4.93846, 0.951878, 6.97283 )
+collision_layer = 0
+collision_mask = 4
+script = ExtResource( 4 )
+
+[node name="collision_shape" type="CollisionShape" parent="catcher"]
+shape = SubResource( 12 )
+
+[node name="mesh_instance" type="MeshInstance" parent="catcher"]
+mesh = SubResource( 13 )
+material/0 = null
+
+[node name="door" type="StaticBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.01109, 0, -1.9633 )
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_group_": true
+}
+activators = [ NodePath("../catcher") ]
+
+[node name="collision_shape" type="CollisionShape" parent="door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+shape = SubResource( 14 )
+
+[node name="mesh_instance" type="MeshInstance" parent="door"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, 0 )
+mesh = SubResource( 15 )
 material/0 = null

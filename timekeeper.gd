@@ -3,7 +3,7 @@ extends Node
 signal tick
 
 var current_time = 0
-var tickinfo = {}
+var tickinfo := {}
 var is_recording = true
 
 func _input(event: InputEvent) -> void:
@@ -14,6 +14,7 @@ func _input(event: InputEvent) -> void:
 
 func _physics_process(_delta: float) -> void:
 	if (is_recording):
+		tickinfo[current_time] = {}
 		emit_signal("tick")
 		current_time += 1
 	else:
@@ -22,7 +23,7 @@ func _physics_process(_delta: float) -> void:
 			is_recording = true
 
 func store_information(info, from:Node):
-	tickinfo[current_time] = {"info":info, "obj":from}
+	tickinfo[current_time][from] = {"info":info, "obj":from}
 
 func retrieve_information(from:Node):
-	return tickinfo[current_time].info
+	return tickinfo[current_time][from].info

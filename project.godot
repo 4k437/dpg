@@ -112,6 +112,12 @@ rewind={
  ]
 }
 
+[layer_names]
+
+3d_physics/layer_1="world"
+3d_physics/layer_2="player"
+3d_physics/layer_3="sphere"
+
 [node]
 
 name_casing=2
