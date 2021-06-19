@@ -16,16 +16,16 @@ fog_depth_begin = 0.0
 fog_depth_end = 50.0
 fog_depth_curve = 0.189465
 
-[sub_resource type="CubeMesh" id=4]
+[sub_resource type="CubeMesh" id=2]
 resource_local_to_scene = true
 size = Vector3( 20, 2, 20 )
 
-[sub_resource type="BoxShape" id=5]
+[sub_resource type="BoxShape" id=3]
 extents = Vector3( 10, 1, 10 )
 
-[sub_resource type="CubeMesh" id=6]
+[sub_resource type="CubeMesh" id=4]
 
-[sub_resource type="BoxShape" id=7]
+[sub_resource type="BoxShape" id=5]
 
 [node name="World" type="Spatial"]
 
@@ -44,11 +44,11 @@ __meta__ = {
 }
 
 [node name="mesh_instance" type="MeshInstance" parent="static_body"]
-mesh = SubResource( 4 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="static_body11" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.0678, 6.97491 )
@@ -57,11 +57,11 @@ __meta__ = {
 }
 
 [node name="mesh_instance" type="MeshInstance" parent="static_body11"]
-mesh = SubResource( 4 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body11"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="static_body12" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.01065, -20.8556 )
@@ -70,11 +70,11 @@ __meta__ = {
 }
 
 [node name="mesh_instance" type="MeshInstance" parent="static_body12"]
-mesh = SubResource( 4 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body12"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="static_body7" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.1755, -1.0706 )
@@ -83,11 +83,11 @@ __meta__ = {
 }
 
 [node name="mesh_instance" type="MeshInstance" parent="static_body7"]
-mesh = SubResource( 4 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body7"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="static_body10" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 17.1755, -18.9297 )
@@ -96,11 +96,11 @@ __meta__ = {
 }
 
 [node name="mesh_instance" type="MeshInstance" parent="static_body10"]
-mesh = SubResource( 4 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body10"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="static_body3" type="StaticBody" parent="."]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 8.94133, 8.22741, -1.0706 )
@@ -109,11 +109,11 @@ __meta__ = {
 }
 
 [node name="mesh_instance" type="MeshInstance" parent="static_body3"]
-mesh = SubResource( 4 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body3"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="static_body9" type="StaticBody" parent="."]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, 8.94133, 8.22741, -19.554 )
@@ -122,11 +122,11 @@ __meta__ = {
 }
 
 [node name="mesh_instance" type="MeshInstance" parent="static_body9"]
-mesh = SubResource( 4 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body9"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="static_body4" type="StaticBody" parent="."]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -8.90692, 8.22741, -1.0706 )
@@ -135,11 +135,11 @@ __meta__ = {
 }
 
 [node name="mesh_instance" type="MeshInstance" parent="static_body4"]
-mesh = SubResource( 4 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body4"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="static_body8" type="StaticBody" parent="."]
 transform = Transform( -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, 0, 1, -8.90692, 8.22741, -20.6217 )
@@ -148,11 +148,11 @@ __meta__ = {
 }
 
 [node name="mesh_instance" type="MeshInstance" parent="static_body8"]
-mesh = SubResource( 4 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body8"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="static_body5" type="StaticBody" parent="."]
 transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.148677, 8.22741, -28.972 )
@@ -161,11 +161,11 @@ __meta__ = {
 }
 
 [node name="mesh_instance" type="MeshInstance" parent="static_body5"]
-mesh = SubResource( 4 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body5"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="static_body6" type="StaticBody" parent="."]
 transform = Transform( 1.91069e-15, 4.37114e-08, -1, 1, -4.37114e-08, 0, -4.37114e-08, -1, -4.37114e-08, -0.148677, 8.22741, 7.87589 )
@@ -174,11 +174,11 @@ __meta__ = {
 }
 
 [node name="mesh_instance" type="MeshInstance" parent="static_body6"]
-mesh = SubResource( 4 )
+mesh = SubResource( 2 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body6"]
-shape = SubResource( 5 )
+shape = SubResource( 3 )
 
 [node name="static_body2" type="StaticBody" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -1.07451, -6.94925 )
@@ -187,11 +187,11 @@ __meta__ = {
 }
 
 [node name="mesh_instance2" type="MeshInstance" parent="static_body2"]
-mesh = SubResource( 6 )
+mesh = SubResource( 4 )
 material/0 = null
 
 [node name="collision_shape" type="CollisionShape" parent="static_body2"]
-shape = SubResource( 7 )
+shape = SubResource( 5 )
 
 [node name="exit" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.05179, -28.2058 )
