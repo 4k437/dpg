@@ -8,11 +8,18 @@ export var move_speed = 5
 export var acceleration = 0.1
 export var friction = 0.1
 export var air_friction = 0.01
+
 export var gravity = 20.0
 var current_gravity = 0.0
-export var jump_force = 5.0
 
+export var jump_force = 5.0
+export var coyote_time = 15
+var current_coyote_time = 0
 var is_grounded = false
+
+export var boost_force = 10.0
+var has_boost = false
+
 
 func _ready() -> void:
 	Timekeeper.connect("tick", self, "tick")
@@ -30,13 +37,7 @@ func _physics_process(delta):
 	if (Timekeeper.is_recording):
 		movement(delta)
 	else:
-		var info = Timekeeper.retrieve_information(self)
-		global_transform.origin = info[0]
-		rotation = info[1]
-		camera.rotation = info[2]
-		velocity = info[3]
-		current_gravity = info[4]
-		is_grounded = info[5]
+		retrieve_info()
 
 func movement(delta):
 	var move_input = Vector2(
@@ -60,9 +61,21 @@ func movement(delta):
 	
 	is_grounded = is_on_floor()
 	if (is_grounded):
+		has_boost = true
+		current_coyote_time = coyote_time
 		current_gravity = 0
-		if (Input.is_action_just_pressed("move_jump")):
-			current_gravity = jump_force
+	else:
+		current_coyote_time -= 1
+	
+	if (Input.is_action_just_pressed("move_jump")):
+		if (current_coyote_time > 0):
+				current_gravity = jump_force
+				velocity += get_floor_velocity()
+				current_coyote_time = 0
+		elif (has_boost):
+				velocity = -transform.basis.z * boost_force
+				current_gravity = jump_force/2
+				has_boost = false
 
 func tick():
 	var info = [
@@ -71,6 +84,19 @@ func tick():
 		camera.rotation,
 		velocity,
 		current_gravity,
-		is_grounded
+		is_grounded,
+		has_boost,
+		current_coyote_time
 	]
 	Timekeeper.store_information(info, self)
+
+func retrieve_info():
+	var info = Timekeeper.retrieve_information(self)
+	global_transform.origin = info[0]
+	rotation = info[1]
+	camera.rotation = info[2]
+	velocity = info[3]
+	current_gravity = info[4]
+	is_grounded = info[5]
+	has_boost = info[6]
+	current_coyote_time = info[7]

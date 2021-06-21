@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://entities/sphere.gd" type="Script" id=1]
 
@@ -8,6 +8,18 @@ radius = 0.25
 [sub_resource type="SphereMesh" id=2]
 radius = 0.25
 height = 0.5
+
+[sub_resource type="Shader" id=3]
+code = "shader_type spatial;
+render_mode unshaded;
+
+void fragment() {
+	float fresnel = dot(VIEW, NORMAL);
+	ALBEDO = vec3(fresnel) * mat3(CAMERA_MATRIX);
+}"
+
+[sub_resource type="ShaderMaterial" id=4]
+shader = SubResource( 3 )
 
 [node name="sphere" type="KinematicBody"]
 collision_layer = 4
@@ -19,4 +31,4 @@ shape = SubResource( 1 )
 
 [node name="mesh_instance" type="MeshInstance" parent="."]
 mesh = SubResource( 2 )
-material/0 = null
+material/0 = SubResource( 4 )
