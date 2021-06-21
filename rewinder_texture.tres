@@ -1,6 +1,6 @@
 [gd_resource type="ShaderMaterial" load_steps=4 format=2]
 
-[sub_resource type="Shader" id=15]
+[sub_resource type="Shader" id=1]
 code = "shader_type spatial;
 render_mode unshaded, world_vertex_coords;
 uniform sampler2D noise: hint_albedo;
@@ -44,15 +44,15 @@ void fragment() {
 }
 "
 
-[sub_resource type="OpenSimplexNoise" id=19]
+[sub_resource type="OpenSimplexNoise" id=2]
 
-[sub_resource type="NoiseTexture" id=20]
+[sub_resource type="NoiseTexture" id=3]
 seamless = true
-noise = SubResource( 19 )
+noise = SubResource( 2 )
 
 [resource]
-shader = SubResource( 15 )
+shader = SubResource( 1 )
 shader_param/uv1_blend_sharpness = 1.0
 shader_param/uv1_scale = 0.01
 shader_param/uv1_offset = Vector3( 0, 0, 0 )
-shader_param/noise = SubResource( 20 )
+shader_param/noise = SubResource( 3 )

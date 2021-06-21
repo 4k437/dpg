@@ -11,7 +11,6 @@ extents = Vector3( 1, 0.2, 1 )
 collision_mask = 0
 script = ExtResource( 1 )
 point2 = Vector3( 0, 0, 5 )
-move_speed = 0.2
 
 [node name="collision_shape" type="CollisionShape" parent="."]
 shape = SubResource( 1 )

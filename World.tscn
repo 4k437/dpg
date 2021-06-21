@@ -40,7 +40,7 @@ data = PoolVector3Array( 10, 1, 10, -10, 1, 10, -10, -1, 10, 10, -1, 10, 10, 1, 
 [sub_resource type="BoxShape" id=8]
 extents = Vector3( 10.4562, 1, 24.2961 )
 
-[sub_resource type="CubeMesh" id=14]
+[sub_resource type="CubeMesh" id=9]
 
 [node name="World" type="Spatial"]
 
@@ -135,5 +135,5 @@ shape = SubResource( 8 )
 
 [node name="mesh_instance2" type="MeshInstance" parent="rewinder"]
 transform = Transform( 10.9747, 0, 0, 0, 1.01228, 0, 0, 0, 25.41, 0, 0, 0 )
-mesh = SubResource( 14 )
+mesh = SubResource( 9 )
 material/0 = ExtResource( 4 )
