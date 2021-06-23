@@ -4,13 +4,13 @@
 [ext_resource path="res://spin.gd" type="Script" id=2]
 [ext_resource path="res://clock.png" type="Texture" id=3]
 
-[sub_resource type="StyleBoxFlat" id=2]
+[sub_resource type="StyleBoxFlat" id=1]
 bg_color = Color( 0.282353, 0.282353, 0.282353, 1 )
 
-[sub_resource type="StyleBoxFlat" id=3]
+[sub_resource type="StyleBoxFlat" id=2]
 bg_color = Color( 1, 1, 1, 1 )
 
-[sub_resource type="StyleBoxFlat" id=1]
+[sub_resource type="StyleBoxFlat" id=3]
 bg_color = Color( 0, 0, 0, 1 )
 
 [node name="Menu" type="Control"]
@@ -33,9 +33,9 @@ script = ExtResource( 2 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-speed = -0.07
+speed = -1.0
 
-[node name="texture_rect" type="TextureRect" parent="center_container"]
+[node name="clock" type="TextureRect" parent="center_container"]
 margin_left = -1500.0
 margin_top = -1500.0
 margin_right = 1500.0
@@ -66,9 +66,9 @@ margin_bottom = 350.0
 rect_min_size = Vector2( 20, 40 )
 focus_mode = 0
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 text = "PLAY"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -81,9 +81,9 @@ margin_bottom = 410.0
 rect_min_size = Vector2( 20, 40 )
 focus_mode = 0
 size_flags_horizontal = 3
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 1 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
 text = "EXIT"
 __meta__ = {
 "_edit_use_anchors_": false

@@ -182,7 +182,7 @@ mesh = SubResource( 5 )
 material/0 = ExtResource( 2 )
 
 [node name="static_body25" type="StaticBody" parent="."]
-transform = Transform( 0.180307, 0, 0, 0, 0.547911, 0, 0, 0, 0.249617, 3.7607, 1.16371, -76.2544 )
+transform = Transform( 0.180307, 0, 0, 0, 0.547911, 0, 0, 0, 0.249617, 3.7607, 1.1514, -76.2544 )
 __meta__ = {
 "_edit_group_": true
 }
