@@ -1,0 +1,90 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Menu.gd" type="Script" id=1]
+[ext_resource path="res://spin.gd" type="Script" id=2]
+[ext_resource path="res://clock.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=2]
+bg_color = Color( 0.282353, 0.282353, 0.282353, 1 )
+
+[sub_resource type="StyleBoxFlat" id=3]
+bg_color = Color( 1, 1, 1, 1 )
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0, 0, 0, 1 )
+
+[node name="Menu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="center_container" type="CenterContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -740.0
+margin_right = -740.0
+use_top_left = true
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+speed = -0.07
+
+[node name="texture_rect" type="TextureRect" parent="center_container"]
+margin_left = -1500.0
+margin_top = -1500.0
+margin_right = 1500.0
+margin_bottom = 1500.0
+rect_min_size = Vector2( 3000, 3000 )
+texture = ExtResource( 3 )
+expand = true
+stretch_mode = 5
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="buttons" type="VBoxContainer" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 400.0
+margin_right = -400.0
+custom_constants/separation = 20
+alignment = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="play" type="Button" parent="buttons"]
+margin_top = 310.0
+margin_right = 480.0
+margin_bottom = 350.0
+rect_min_size = Vector2( 20, 40 )
+focus_mode = 0
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 1 )
+text = "PLAY"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="exit" type="Button" parent="buttons"]
+margin_top = 370.0
+margin_right = 480.0
+margin_bottom = 410.0
+rect_min_size = Vector2( 20, 40 )
+focus_mode = 0
+size_flags_horizontal = 3
+custom_styles/hover = SubResource( 2 )
+custom_styles/pressed = SubResource( 3 )
+custom_styles/normal = SubResource( 1 )
+text = "EXIT"
+__meta__ = {
+"_edit_use_anchors_": false
+}
