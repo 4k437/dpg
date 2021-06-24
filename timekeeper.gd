@@ -12,7 +12,9 @@ func _input(event: InputEvent) -> void:
 	if (Input.is_action_just_released("rewind")):
 		is_recording = true
 	if (Input.is_action_just_pressed("restart")):
-		full_rewind()
+		get_tree().reload_current_scene()
+		current_time = 0
+
 	if (Input.is_action_just_pressed("escape")):
 		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 		get_tree().change_scene("res://Menu.tscn")
@@ -37,7 +39,3 @@ func ticks_to_time() -> String:
 	var seconds = (current_time / 60)
 	var minutes = (seconds / 60)
 	return str(minutes % 60) + ":" + str(seconds % 60) + "." + str(Timekeeper.current_time % 60)
-
-func full_rewind():
-	get_tree().reload_current_scene()
-	current_time = 0
