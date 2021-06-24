@@ -13,6 +13,9 @@ func _input(event: InputEvent) -> void:
 		is_recording = true
 	if (Input.is_action_just_pressed("restart")):
 		full_rewind()
+	if (Input.is_action_just_pressed("escape")):
+		Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+		get_tree().change_scene("res://Menu.tscn")
 
 func _physics_process(_delta: float) -> void:
 	if (is_recording):
