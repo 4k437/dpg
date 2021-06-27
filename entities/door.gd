@@ -14,10 +14,8 @@ func _physics_process(delta: float) -> void:
 		$collision_shape.disabled = !visible
 
 func activated():
-	activations += 1
-	if (activations >= activators.size()):
-		visible = false
-		$collision_shape.disabled = true
+	visible = false
+	$collision_shape.disabled = true
 
 func tick():
 	Timekeeper.store_information(visible, self)

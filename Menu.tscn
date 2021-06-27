@@ -48,6 +48,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="tween" type="Tween" parent="center_container"]
+
 [node name="buttons" type="VBoxContainer" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0

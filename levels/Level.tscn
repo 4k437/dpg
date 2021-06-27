@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://entities/player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://texture.tres" type="Material" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://entities/switch.tscn" type="PackedScene" id=6]
 [ext_resource path="res://entities/door.tscn" type="PackedScene" id=7]
 [ext_resource path="res://entities/exit.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Menu.tscn" type="PackedScene" id=9]
 
 [sub_resource type="Environment" id=1]
 background_mode = 1
@@ -761,3 +762,4 @@ material/0 = ExtResource( 5 )
 
 [node name="exit" parent="." instance=ExtResource( 8 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -4.8743, -210.319 )
+next_scene = ExtResource( 9 )
